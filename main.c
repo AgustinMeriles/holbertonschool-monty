@@ -14,6 +14,9 @@ int main(int argc, char **argv)
 	size_t len = 0;
 	ssize_t read;
 	int line_number = 1;
+	char *token;
+	stack_t *stack = NULL;/*Malloc(sizeof(stack_t))??*/
+	void (*f)(stack_t **stack, unsigned int line_number) = NULL;
 
 	if (argc != 2)
 	{
@@ -21,7 +24,6 @@ int main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 
-	/*fd = open(argv[1], O_WRONLY);*/
 	fp = fopen(argv[1], "r");
 
 	if (!fp)
@@ -32,10 +34,24 @@ int main(int argc, char **argv)
 
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
-		printf("Retrieved line of length %ld:\n", read);
-		printf("%s", line);
+		/*printf("Line %d:%s", line_number, line);*/
+		token = strtok(line, " \n");
+		if (!token)
+			continue;
+		/*printf("token1:%s\n", token);*/
+		f = get_op_func(token);
+		if (!f)
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
+			return (EXIT_FAILURE);
+		}
+		f(&stack, line_number);
+		/*printf("\n");*/
 		line_number++;
 	}
+
+	fclose(fp);
+	free(line);
 
 	return (EXIT_SUCCESS);
 
