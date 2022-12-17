@@ -1,9 +1,9 @@
 #include "monty.h"
 
-/*
- * add - add
- * @stack: stack
- * @line_number: line number
+/**
+ * add - function that adds the top two elements of the stack
+ * @stack: the stack;
+ * @line_number: Unused unsigned int;
  */
 void add(UNUSED stack_t **stack, UNUSED unsigned int line_number)
 {
@@ -19,7 +19,7 @@ void add(UNUSED stack_t **stack, UNUSED unsigned int line_number)
 
 	if (i < 2)
 	{
-		printf("error");
+		printf(stderr, "L<"line_number">: can't add");
 		exit(EXIT_FAILURE);
 	}
 
@@ -29,10 +29,10 @@ void add(UNUSED stack_t **stack, UNUSED unsigned int line_number)
 }
 
 
-/*
- * nop - nop
- * @stack: stack
- * @line_number: line number
+/**
+ * nop - function that doesn't do anything
+ * @stack: the stack;
+ * @line_number: Unused unsigned int;
  */
 void nop(UNUSED stack_t **stack, UNUSED unsigned int line_number)
 {
