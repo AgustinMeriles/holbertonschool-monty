@@ -23,22 +23,17 @@ int main(int argc, char **argv)
 		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
-
 	fp = fopen(argv[1], "r");
-
 	if (!fp)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		return (EXIT_FAILURE);
 	}
-
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
-		/*printf("Line %d:%s", line_number, line);*/
 		token = strtok(line, " \n");
 		if (!token)
 			continue;
-		/*printf("token1:%s\n", token);*/
 		f = get_op_func(token);
 		if (!f)
 		{
@@ -46,13 +41,10 @@ int main(int argc, char **argv)
 			return (EXIT_FAILURE);
 		}
 		f(&stack, line_number);
-		/*printf("\n");*/
 		line_number++;
 	}
-
 	fclose(fp);
 	free(line);
-
+	free_stack(stack);
 	return (EXIT_SUCCESS);
-
 }

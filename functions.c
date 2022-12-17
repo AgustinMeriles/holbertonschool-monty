@@ -2,10 +2,9 @@
 
 /*
  */
-void push(stack_t **stack,UNUSED unsigned int line_number)
+void push(stack_t **stack, UNUSED unsigned int line_number)
 {
 	int num = atoi(strtok(NULL, " \n"));
-	/*printf("Num = %d\n", num);*/
 
 	stack_t *node = NULL;
 	stack_t *ptr = *stack;
@@ -38,7 +37,7 @@ void push(stack_t **stack,UNUSED unsigned int line_number)
 
 /*
  */
-void pall(stack_t **stack,UNUSED unsigned int line_number)
+void pall(stack_t **stack, UNUSED unsigned int line_number)
 {
 	stack_t *ptr = *stack;
 
@@ -64,17 +63,17 @@ void pall(stack_t **stack,UNUSED unsigned int line_number)
 
 /*
  */
-void pint(stack_t **stack,UNUSED unsigned int line_number)
+void pint(stack_t **stack, UNUSED unsigned int line_number)
 {
-    stack_t *ptr = *stack;
+	stack_t *ptr = *stack;
 
-    while (ptr)
-    {
-        if (!(ptr->next))
-            break;
+	while (ptr)
+	{
+		if (!(ptr->next))
+			break;
 
-        ptr = ptr->next;
-    }
+		ptr = ptr->next;
+	}
 
 	if (ptr->n)
 		printf("%d\n", ptr->n);
@@ -85,7 +84,7 @@ void pint(stack_t **stack,UNUSED unsigned int line_number)
 
 /*
  */
-void pop(UNUSED stack_t **stack,UNUSED unsigned int line_number)
+void pop(UNUSED stack_t **stack, UNUSED unsigned int line_number)
 {
 	printf("Insert function here\n");
 }
@@ -93,23 +92,7 @@ void pop(UNUSED stack_t **stack,UNUSED unsigned int line_number)
 
 /*
  */
-void swap(UNUSED stack_t **stack,UNUSED unsigned int line_number)
-{
-	printf("Insert function here\n");
-}
-
-
-/*
- */
-void add(UNUSED stack_t **stack,UNUSED unsigned int line_number)
-{
-	printf("Insert function here\n");
-}
-
-
-/*
- */
-void nop(UNUSED stack_t **stack,UNUSED unsigned int line_number)
+void swap(UNUSED stack_t **stack, UNUSED unsigned int line_number)
 {
 	printf("Insert function here\n");
 }
