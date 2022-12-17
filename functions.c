@@ -1,6 +1,9 @@
 #include "monty.h"
 
-/*
+/**
+ * push - function that pushes an element to the stack
+ * @stack: the stack of values;
+ * @line_number: Unused unsigned int;
  */
 void push(stack_t **stack, UNUSED unsigned int line_number)
 {
@@ -35,7 +38,10 @@ void push(stack_t **stack, UNUSED unsigned int line_number)
 	}
 }
 
-/*
+/**
+ * pall - function that prints all the values on the stack
+ * @stack: the stack of values;
+ * @line_number: Unused unsigned int;
  */
 void pall(stack_t **stack, UNUSED unsigned int line_number)
 {
@@ -61,7 +67,10 @@ void pall(stack_t **stack, UNUSED unsigned int line_number)
 }
 
 
-/*
+/**
+ * pint - prints the value of rhe top of the stack, followed by a new line
+ * @stack: the stack;
+ * @line_number: Unused unsigned int;
  */
 void pint(stack_t **stack, UNUSED unsigned int line_number)
 {
@@ -82,7 +91,10 @@ void pint(stack_t **stack, UNUSED unsigned int line_number)
 }
 
 
-/*
+/**
+ * pop - removes the top element of the stack
+ * @stack: the stack
+ * @line_number: Unused unsigned int;
  */
 void pop(UNUSED stack_t **stack, UNUSED unsigned int line_number)
 {
@@ -108,7 +120,10 @@ void pop(UNUSED stack_t **stack, UNUSED unsigned int line_number)
 }
 
 
-/*
+/**
+ * swap - swap the top two elements of the stack
+ * @stack: the stack
+ * @line_number: Unused unsigned int;
  */
 void swap(UNUSED stack_t **stack, UNUSED unsigned int line_number)
 {
@@ -125,7 +140,7 @@ void swap(UNUSED stack_t **stack, UNUSED unsigned int line_number)
 
 	if (i < 2)
 	{
-		printf("error");
+		printf(stderr, "L<"line_number"<: can't swap, stack too short\n");
 		exit(EXIT_FAILURE);
 	}
 
