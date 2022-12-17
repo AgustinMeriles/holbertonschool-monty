@@ -12,6 +12,9 @@
 
 #define UNUSED __attribute__((unused))
 
+/*extern char *line; */
+/* extern stack_t *stack = NULL; */
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
