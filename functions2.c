@@ -7,7 +7,25 @@
  */
 void add(UNUSED stack_t **stack, UNUSED unsigned int line_number)
 {
-	printf("Insert function here\n");
+	stack_t *ptr = *stack;
+	size_t i;
+
+	for (i = 0; ptr; i++)
+	{
+		if (!(ptr->next))
+			break;
+		ptr = ptr->next;
+	}
+
+	if (i < 2)
+	{
+		printf("error");
+		exit(EXIT_FAILURE);
+	}
+
+	ptr = ptr->prev;
+	ptr->n = (ptr->n) + ((ptr->next)->n);
+	pop(stack, line_number);
 }
 
 

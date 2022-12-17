@@ -9,12 +9,11 @@
 
 int main(int argc, char **argv)
 {
-	char *line = NULL;
+	char *line = NULL, *token;
 	FILE *fp;
 	size_t len = 0;
 	ssize_t read;
 	int line_number = 1;
-	char *token;
 	stack_t *stack = NULL;/*Malloc(sizeof(stack_t))??*/
 	void (*f)(stack_t **stack, unsigned int line_number) = NULL;
 
